@@ -1,9 +1,11 @@
-var secondHand = document.getElementsByClassName('second-hand');
-var minutesHand = document.getElementsByClassName('min-hand');
-var hourHand = document.getElementsByClassName('hour-hand');
+//Getting the elements
+const secondHand = document.querySelector('.second-hand');
+const minutesHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
 
 function setDate() {
 
+    //Setting the current time
     const actualTime = new Date();
 
     const seconds =  actualTime.getSeconds();
@@ -15,7 +17,7 @@ function setDate() {
     minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
     const hours = actualTime.getHours();
-    const hoursDegrees = ((hours / 60) * 360) + 90;
+    const hoursDegrees = ((hours / 12) * 360) + 90;
     hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 }
 
